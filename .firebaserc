@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "pulipin"
+    "default": "pulipin",
+    "staging": "new-pulipin"
   }
 }
