@@ -7,11 +7,8 @@
     </router-link>
     <div class="links">
       <nav class="nav-links">
-        <div class="nav-item">
-          <router-link to="/products">Products</router-link>
-        </div>
         <div v-if="!isUserLoggedIn && networkOnLine" class="nav-item">
-          <router-link to="/login">Login</router-link>
+          <a>Login</a>
         </div>
         <div
           v-if="isUserLoggedIn && networkOnLine"

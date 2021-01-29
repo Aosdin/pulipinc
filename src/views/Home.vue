@@ -1,13 +1,31 @@
 <template>
   <div class="page-wrapper">
-    <dashboard id="timeDefer">
+    <div class="grid">
+      <ul>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+        <li><ul><li>23일 (월)</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></li>
+      </ul>
+    </div>
+    <dashboard id="journal"  ref="journal" class="journal">
       <dash-layout
         v-for="layout in dlayouts"
         :key="layout.breakpoint"
         v-bind="layout"
-        :debug="true"
-        :col-width="50"
-        :row-height="50"
+        :debug="false"
+        :col-width="rowWidth"
+        :row-height="rowHeight"
         :compact="false"
         :use-css-transforms="true"
       >
@@ -17,6 +35,7 @@
           v-bind.sync="item"
           :min-width="1"
           :max-width="1"
+          :margin="{x: 10, y: 0}"
         >
           <div class="content" />
 
@@ -64,273 +83,326 @@ export default {
   },
   data() {
     return {
-      dlayouts: [
-        {
-          breakpoint: 'xl',
-          numberOfCols: 20,
-          items: [
-            {
-              id: '1',
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '2',
-              x: 1,
-              y: 0,
-              width: 10,
-              height: 1
-            },
-            {
-              id: '3',
-              x: 0,
-              y: 1,
-              width: 10,
-              height: 1
-            },
-            {
-              id: '4',
-              x: 3,
-              y: 0,
-              width: 10,
-              height: 2
-            },
-            {
-              id: '5',
-              x: 5,
-              y: 0,
-              width: 10,
-              height: 2
-            },
-            {
-              id: '6',
-              x: 6,
-              y: 0,
-              width: 10,
-              height: 1
-            },
-            {
-              id: '7',
-              x: 7,
-              y: 1,
-              width: 10,
-              height: 1
-            }
-          ]
-        },
-        {
-          breakpoint: 'lg',
-          breakpointWidth: 1200,
-          numberOfCols: 20,
-          items: [
-            {
-              id: '1',
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '2',
-              x: 1,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '3',
-              x: 0,
-              y: 1,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '4',
-              x: 3,
-              y: 0,
-              width: 1,
-              height: 2
-            },
-            {
-              id: '5',
-              x: 5,
-              y: 0,
-              width: 1,
-              height: 2
-            },
-            {
-              id: '6',
-              x: 6,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '7',
-              x: 7,
-              y: 1,
-              width: 1,
-              height: 1
-            }
-          ]
-        },
-        {
-          breakpoint: 'md',
-          breakpointWidth: 996,
-          numberOfCols: 8,
-          items: [
-            {
-              id: '1',
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '2',
-              x: 1,
-              y: 0,
-              width: 2,
-              height: 1
-            },
-            {
-              id: '3',
-              x: 0,
-              y: 1,
-              width: 2,
-              height: 1
-            },
-            {
-              id: '4',
-              x: 3,
-              y: 0,
-              width: 2,
-              height: 2
-            },
-            {
-              id: '5',
-              x: 5,
-              y: 0,
-              width: 1,
-              height: 2
-            },
-            {
-              id: '6',
-              x: 6,
-              y: 0,
-              width: 2,
-              height: 1
-            },
-            {
-              id: '7',
-              x: 7,
-              y: 1,
-              width: 1,
-              height: 1
-            }
-          ]
-        },
-        {
-          breakpoint: 'sm',
-          breakpointWidth: 768,
-          numberOfCols: 4,
-          items: [
-            {
-              id: '1',
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '2',
-              x: 1,
-              y: 0,
-              width: 2,
-              height: 1
-            },
-            {
-              id: '3',
-              x: 0,
-              y: 1,
-              width: 2,
-              height: 1
-            },
-            {
-              id: '4',
-              x: 3,
-              y: 0,
-              width: 1,
-              height: 2
-            },
-            {
-              id: '5',
-              x: 2,
-              y: 1,
-              width: 1,
-              height: 1
-            }
-          ]
-        },
-        {
-          breakpoint: 'xs',
-          breakpointWidth: 480,
-          numberOfCols: 2,
-          items: [
-            {
-              id: '1',
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '2',
-              x: 1,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '3',
-              x: 0,
-              y: 1,
-              width: 2,
-              height: 1
-            }
-          ]
-        },
-        {
-          breakpoint: 'xxs',
-          breakpointWidth: 0,
-          numberOfCols: 1,
-          items: [
-            {
-              id: '1',
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1
-            },
-            {
-              id: '2',
-              x: 0,
-              y: 1,
-              width: 1,
-              height: 1
-            }
-          ]
-        }
-      ]
+      row: 14,
+      dlayouts: []
     }
+  },
+  computed: {
+    rowWidth () {
+      return (window.innerWidth - 100) / this.row
+    },
+    rowHeight () {
+      return (window.innerHeight - 100) / 25
+    }
+  },
+  mounted() {
+    this.dlayouts = [
+      {
+        breakpoint: 'xl',
+        numberOfCols: this.row,
+        items: [
+          {
+            id: '1',
+            x: 0,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '2',
+            x: 1,
+            y: 0,
+            width: 10,
+            height: 1
+          },
+          {
+            id: '3',
+            x: 0,
+            y: 1,
+            width: 10,
+            height: 1
+          },
+          {
+            id: '4',
+            x: 3,
+            y: 0,
+            width: 10,
+            height: 2
+          },
+          {
+            id: '5',
+            x: 5,
+            y: 0,
+            width: 10,
+            height: 2
+          },
+          {
+            id: '6',
+            x: 6,
+            y: 0,
+            width: 10,
+            height: 1
+          },
+          {
+            id: '7',
+            x: 7,
+            y: 1,
+            width: 10,
+            height: 1
+          }
+        ]
+      },
+      {
+        breakpoint: 'lg',
+        breakpointWidth: 1200,
+        numberOfCols: this.row,
+        items: [
+          {
+            id: '1',
+            x: 0,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '2',
+            x: 1,
+            y: 0,
+            width: 1,
+            height: 1,
+            draggable: false,
+            resizable: false
+          },
+          {
+            id: '3',
+            x: 0,
+            y: 1,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '4',
+            x: 3,
+            y: 0,
+            width: 1,
+            height: 2
+          },
+          {
+            id: '5',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 2
+          },
+          {
+            id: '6',
+            x: 6,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '7',
+            x: 7,
+            y: 1,
+            width: 1,
+            height: 1
+          }
+        ]
+      },
+      {
+        breakpoint: 'md',
+        breakpointWidth: 996,
+        numberOfCols: this.row,
+        items: [
+          {
+            id: '1',
+            x: 0,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '2',
+            x: 1,
+            y: 0,
+            width: 2,
+            height: 1
+          },
+          {
+            id: '3',
+            x: 0,
+            y: 1,
+            width: 2,
+            height: 1
+          },
+          {
+            id: '4',
+            x: 3,
+            y: 0,
+            width: 2,
+            height: 2
+          },
+          {
+            id: '5',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 2
+          },
+          {
+            id: '6',
+            x: 6,
+            y: 0,
+            width: 2,
+            height: 1
+          },
+          {
+            id: '7',
+            x: 7,
+            y: 1,
+            width: 1,
+            height: 1
+          }
+        ]
+      },
+      {
+        breakpoint: 'sm',
+        breakpointWidth: 768,
+        numberOfCols: 7,
+        items: [
+          {
+            id: '1',
+            x: 0,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '2',
+            x: 1,
+            y: 0,
+            width: 2,
+            height: 1
+          },
+          {
+            id: '3',
+            x: 0,
+            y: 1,
+            width: 2,
+            height: 1
+          },
+          {
+            id: '4',
+            x: 3,
+            y: 0,
+            width: 1,
+            height: 2
+          },
+          {
+            id: '5',
+            x: 2,
+            y: 1,
+            width: 1,
+            height: 1
+          }
+        ]
+      },
+      {
+        breakpoint: 'xs',
+        breakpointWidth: 480,
+        numberOfCols: 7,
+        items: [
+          {
+            id: '1',
+            x: 0,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '2',
+            x: 1,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '3',
+            x: 0,
+            y: 1,
+            width: 2,
+            height: 1
+          }
+        ]
+      },
+      {
+        breakpoint: 'xxs',
+        breakpointWidth: 0,
+        numberOfCols: 1,
+        items: [
+          {
+            id: '1',
+            x: 0,
+            y: 0,
+            width: 1,
+            height: 1
+          },
+          {
+            id: '2',
+            x: 0,
+            y: 1,
+            width: 1,
+            height: 1
+          }
+        ]
+      }
+    ]
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/theme/variables.scss';
+.page-wrapper {
+  position: relative;
+  .grid {
+    > ul {
+      > li {
+        display: inline-block;
+        width: 6.85%;
+        height: 100vh;
+        //border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        > ul {
+          li {
+            display: inline-block;
+            margin: 0;
+            width: 100%;
+            height: calc((100vh - 100px) / 25);
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            &:first-child {
+              //border: 0;
+              padding: 10px;
+              border-right: 0;
+            }
+            &:last-child {
+              //border-right: 1px solid #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
+  .journal {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc((100vh - 100px) / 25 + 10px);
+  }
+}
 .content {
   height: 100%;
   width: 100%;

@@ -60,8 +60,7 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-merge": "^4.2.1"
   },
-  "bundlesize": [
-  ],
+  "bundlesize": [],
   "eslintConfig": {
     "root": true,
     "env": {
