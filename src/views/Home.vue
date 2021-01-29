@@ -1,60 +1,190 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="home-page-title">{{ appTitle }}</h1>
+    <dashboard id="timeDefer">
+      <dash-layout
+        v-for="layout in dlayouts"
+        :key="layout.breakpoint"
+        v-bind="layout"
+        :debug="true"
+        :colWidth="50"
+        :rowHeight="50"
+        :minColWidth="50"
+        :maxColWidth="50"
+        :compact="false"
+      >
+        <dash-item
+          v-for="item in layout.items"
+          :key="item.id"
+          v-bind.sync="item"
+        >
+          <div class="content"></div>
+
+          <template v-slot:resizeBottomRight>
+            <svg
+              width="0"
+              height="0"
+              viewBox="0 0 10 10"
+              focusable="false"
+              role="img"
+              alt="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#42b983"
+              class="b-icon bi bi-arrow-down-right mx-auto"
+              data-v-11c9e491
+            >
+              <g data-v-11c9e491>
+                <path
+                  fill-rule="evenodd"
+                  d="M14 9.5a.5.5 0 01.5.5v5a.5.5 0 01-.5.5H9a.5.5 0 010-1h4.5V10a.5.5 0 01.5-.5z"
+                  clip-rule="evenodd"
+                ></path>
+                <path
+                  fill-rule="evenodd"
+                  d="M4.646 5.646a.5.5 0 01.708 0l9 9a.5.5 0 01-.708.708l-9-9a.5.5 0 010-.708z"
+                  clip-rule="evenodd"
+                ></path>
+              </g>
+            </svg>
+          </template>
+        </dash-item>
+      </dash-layout>
+    </dashboard>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { Dashboard, DashLayout, DashItem } from 'vue-responsive-dash'
 
 export default {
-  head() {
+  components: {
+    Dashboard,
+    DashLayout,
+    DashItem
+  },
+  data() {
     return {
-      title: {
-        inner: 'Home'
-      },
-      meta: [
+      dlayouts: [
         {
-          name: 'description',
-          content: `${this.appTitle} home page`,
-          id: 'desc'
+          breakpoint: 'xl',
+          numberOfCols: 1,
+          items: [
+            {
+              id: '1',
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            { id: '2', x: 1, y: 0, width: 10, height: 1 },
+            { id: '3', x: 0, y: 1, width: 10, height: 1 },
+            { id: '4', x: 3, y: 0, width: 10, height: 2 },
+            { id: '5', x: 5, y: 0, width: 10, height: 2 },
+            { id: '6', x: 6, y: 0, width: 10, height: 1 },
+            { id: '7', x: 7, y: 1, width: 10, height: 1 }
+          ]
+        },
+        {
+          breakpoint: 'lg',
+          breakpointWidth: 1200,
+          numberOfCols: 2,
+          items: [
+            {
+              id: '1',
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            { id: '2', x: 1, y: 0, width: 10, height: 1 },
+            { id: '3', x: 0, y: 1, width: 10, height: 1 },
+            { id: '4', x: 3, y: 0, width: 10, height: 2 },
+            { id: '5', x: 5, y: 0, width: 10, height: 2 },
+            { id: '6', x: 6, y: 0, width: 10, height: 1 },
+            { id: '7', x: 7, y: 1, width: 10, height: 1 }
+          ]
+        },
+        {
+          breakpoint: 'md',
+          breakpointWidth: 996,
+          numberOfCols: 8,
+          items: [
+            {
+              id: '1',
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            { id: '2', x: 1, y: 0, width: 2, height: 1 },
+            { id: '3', x: 0, y: 1, width: 2, height: 1 },
+            { id: '4', x: 3, y: 0, width: 2, height: 2 },
+            { id: '5', x: 5, y: 0, width: 1, height: 2 },
+            { id: '6', x: 6, y: 0, width: 2, height: 1 },
+            { id: '7', x: 7, y: 1, width: 1, height: 1 }
+          ]
+        },
+        {
+          breakpoint: 'sm',
+          breakpointWidth: 768,
+          numberOfCols: 4,
+          items: [
+            {
+              id: '1',
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            { id: '2', x: 1, y: 0, width: 2, height: 1 },
+            { id: '3', x: 0, y: 1, width: 2, height: 1 },
+            { id: '4', x: 3, y: 0, width: 1, height: 2 },
+            { id: '5', x: 2, y: 1, width: 1, height: 1 }
+          ]
+        },
+        {
+          breakpoint: 'xs',
+          breakpointWidth: 480,
+          numberOfCols: 2,
+          items: [
+            {
+              id: '1',
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            { id: '2', x: 1, y: 0, width: 1, height: 1 },
+            { id: '3', x: 0, y: 1, width: 2, height: 1 }
+          ]
+        },
+        {
+          breakpoint: 'xxs',
+          breakpointWidth: 0,
+          numberOfCols: 1,
+          items: [
+            {
+              id: '1',
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            { id: '2', x: 0, y: 1, width: 1, height: 1 }
+          ]
         }
       ]
     }
-  },
-  computed: mapState('app', ['appTitle'])
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/theme/variables.scss';
-
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .logo {
-    margin-bottom: 3rem;
-  }
-
-  .home-page-title {
-    text-align: center;
-  }
-
-  .documentation-link {
-    display: inline-block;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #5d6788;
-    padding: 0.8rem 1.6rem;
-    border-radius: 4px;
-    transition: background-color 0.1s ease;
-    box-sizing: border-box;
-    text-decoration: none;
-    width: fit-content;
-    font-weight: 500;
-  }
+.content {
+  height: 100%;
+  width: 100%;
+  border: 2px solid #42b983;
+  border-radius: 5px;
+  background-color: #42b9833d;
 }
 </style>

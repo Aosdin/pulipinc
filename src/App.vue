@@ -76,14 +76,7 @@ body {
     .main-wrapper {
       margin-top: 3.6rem;
       padding: 20px;
-
       .page-wrapper {
-        width: 60%;
-        margin: auto;
-
-        @media screen and (max-width: 1000px) {
-          width: 100%;
-        }
       }
     }
   }
