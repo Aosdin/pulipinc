@@ -8,8 +8,6 @@
         :debug="true"
         :colWidth="50"
         :rowHeight="50"
-        :minColWidth="50"
-        :maxColWidth="50"
         :compact="false"
       >
         <dash-item
@@ -66,7 +64,7 @@ export default {
       dlayouts: [
         {
           breakpoint: 'xl',
-          numberOfCols: 1,
+          numberOfCols: 20,
           items: [
             {
               id: '1',
@@ -86,21 +84,16 @@ export default {
         {
           breakpoint: 'lg',
           breakpointWidth: 1200,
-          numberOfCols: 2,
+          numberOfCols: 20,
           items: [
-            {
-              id: '1',
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1
+            { id: '1', x: 0, y: 0, width: 1, height: 1
             },
-            { id: '2', x: 1, y: 0, width: 10, height: 1 },
-            { id: '3', x: 0, y: 1, width: 10, height: 1 },
-            { id: '4', x: 3, y: 0, width: 10, height: 2 },
-            { id: '5', x: 5, y: 0, width: 10, height: 2 },
-            { id: '6', x: 6, y: 0, width: 10, height: 1 },
-            { id: '7', x: 7, y: 1, width: 10, height: 1 }
+            { id: '2', x: 1, y: 0, width: 1, height: 1 },
+            { id: '3', x: 0, y: 1, width: 1, height: 1 },
+            { id: '4', x: 3, y: 0, width: 1, height: 2 },
+            { id: '5', x: 5, y: 0, width: 1, height: 2 },
+            { id: '6', x: 6, y: 0, width: 1, height: 1 },
+            { id: '7', x: 7, y: 1, width: 1, height: 1 }
           ]
         },
         {
