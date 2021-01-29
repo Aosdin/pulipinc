@@ -9,11 +9,14 @@
         :col-width="50"
         :row-height="50"
         :compact="false"
+        :use-css-transforms="true"
       >
         <dash-item
           v-for="item in layout.items"
           :key="item.id"
           v-bind.sync="item"
+          :minWidth="50"
+          :maxWidth="50"
         >
           <div class="content"></div>
 
