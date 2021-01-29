@@ -6,8 +6,8 @@
         :key="layout.breakpoint"
         v-bind="layout"
         :debug="true"
-        :colWidth="50"
-        :rowHeight="50"
+        :col-width="50"
+        :row-height="50"
         :compact="false"
       >
         <dash-item
@@ -86,8 +86,7 @@ export default {
           breakpointWidth: 1200,
           numberOfCols: 20,
           items: [
-            { id: '1', x: 0, y: 0, width: 1, height: 1
-            },
+            { id: '1', x: 0, y: 0, width: 1, height: 1 },
             { id: '2', x: 1, y: 0, width: 1, height: 1 },
             { id: '3', x: 0, y: 1, width: 1, height: 1 },
             { id: '4', x: 3, y: 0, width: 1, height: 2 },
