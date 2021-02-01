@@ -828,7 +828,7 @@ export default {
         //border-bottom: 1px solid #ccc;
         > ul {
           &.today {
-            background-color: #1565C033;
+            background-color: #1565c033;
             li:first-child {
               background-color: #fff;
             }
