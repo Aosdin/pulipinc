@@ -233,7 +233,7 @@
           :max-row-height="rowHeight * 24"
           :compact="false"
           :margin="{ x: 0, y: 0 }"
-          :use-css-transforms="false"
+          :use-css-transforms="true"
         >
           <dash-item
             v-for="itm in layout.items"
@@ -371,56 +371,121 @@ export default {
     this.dlayouts = [
       {
         breakpoint: 'xl',
+        breakpointWidth: 1200,
         numberOfCols: this.row,
         items: [
           {
-            id: '1',
+            id: '00',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
             x: 0,
-            y: 0,
+            y: 8,
             width: 1,
             height: 1
           },
           {
+            id: '0',
+            class: '',
+            color: '#F44336',
+            project: '전체회의',
+            x: 0,
+            y: 9,
+            width: 1,
+            height: 1,
+            locked: true
+          },
+          {
+            id: '1',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
+            x: 0,
+            y: 10,
+            width: 1,
+            height: 8
+          },
+          {
             id: '2',
+            class: '',
+            color: '#FDD835',
+            project: '타이틀리스트 슈어핏',
             x: 1,
-            y: 0,
-            width: 10,
-            height: 1
+            y: 8,
+            width: 1,
+            height: 3
           },
           {
             id: '3',
-            x: 0,
-            y: 1,
-            width: 10,
-            height: 1
+            class: '',
+            color: '#3844c7',
+            project: '연구소 주간회의',
+            x: 1,
+            y: 11,
+            width: 1,
+            height: 1,
+            locked: true
           },
           {
             id: '4',
-            x: 3,
-            y: 0,
-            width: 10,
-            height: 2
+            class: '',
+            color: '#FF7043',
+            project: '타이틀리스트 어패럴',
+            x: 1,
+            y: 12,
+            width: 1,
+            height: 5.5
           },
           {
             id: '5',
-            x: 5,
-            y: 0,
-            width: 10,
-            height: 2
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 2,
+            y: 8.5,
+            width: 1,
+            height: 8.5
           },
           {
             id: '6',
-            x: 6,
-            y: 0,
-            width: 10,
-            height: 1
+            class: '',
+            color: '#3844c7',
+            project: '행복앱 인수인계',
+            x: 3,
+            y: 9,
+            width: 1,
+            height: 3,
+            locked: true
           },
           {
             id: '7',
-            x: 7,
-            y: 1,
-            width: 10,
-            height: 1
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 3,
+            y: 12,
+            width: 1,
+            height: 8.5
+          },
+          {
+            id: '8',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 4,
+            y: 8,
+            width: 1,
+            height: 16
+          },
+          {
+            id: '9',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 4
           }
         ]
       },
@@ -530,7 +595,17 @@ export default {
             x: 4,
             y: 8,
             width: 1,
-            height: 8
+            height: 16
+          },
+          {
+            id: '9',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 4
           }
         ]
       },
@@ -540,144 +615,477 @@ export default {
         numberOfCols: this.row,
         items: [
           {
-            id: '1',
+            id: '00',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
             x: 0,
-            y: 0,
+            y: 8,
             width: 1,
             height: 1
+          },
+          {
+            id: '0',
+            class: '',
+            color: '#F44336',
+            project: '전체회의',
+            x: 0,
+            y: 9,
+            width: 1,
+            height: 1,
+            locked: true
+          },
+          {
+            id: '1',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
+            x: 0,
+            y: 10,
+            width: 1,
+            height: 8
           },
           {
             id: '2',
+            class: '',
+            color: '#FDD835',
+            project: '타이틀리스트 슈어핏',
             x: 1,
-            y: 0,
-            width: 2,
-            height: 1
+            y: 8,
+            width: 1,
+            height: 3
           },
           {
             id: '3',
-            x: 0,
-            y: 1,
-            width: 2,
-            height: 1
+            class: '',
+            color: '#3844c7',
+            project: '연구소 주간회의',
+            x: 1,
+            y: 11,
+            width: 1,
+            height: 1,
+            locked: true
           },
           {
             id: '4',
-            x: 3,
-            y: 0,
-            width: 2,
-            height: 2
+            class: '',
+            color: '#FF7043',
+            project: '타이틀리스트 어패럴',
+            x: 1,
+            y: 12,
+            width: 1,
+            height: 5.5
           },
           {
             id: '5',
-            x: 5,
-            y: 0,
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 2,
+            y: 8.5,
             width: 1,
-            height: 2
+            height: 8.5
           },
           {
             id: '6',
-            x: 6,
-            y: 0,
-            width: 2,
-            height: 1
+            class: '',
+            color: '#3844c7',
+            project: '행복앱 인수인계',
+            x: 3,
+            y: 9,
+            width: 1,
+            height: 3,
+            locked: true
           },
           {
             id: '7',
-            x: 7,
-            y: 1,
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 3,
+            y: 12,
             width: 1,
-            height: 1
+            height: 8.5
+          },
+          {
+            id: '8',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 4,
+            y: 8,
+            width: 1,
+            height: 16
+          },
+          {
+            id: '9',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 4
           }
         ]
       },
       {
         breakpoint: 'sm',
         breakpointWidth: 768,
-        numberOfCols: 7,
+        numberOfCols: this.row,
         items: [
           {
-            id: '1',
+            id: '00',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
             x: 0,
-            y: 0,
+            y: 8,
             width: 1,
             height: 1
+          },
+          {
+            id: '0',
+            class: '',
+            color: '#F44336',
+            project: '전체회의',
+            x: 0,
+            y: 9,
+            width: 1,
+            height: 1,
+            locked: true
+          },
+          {
+            id: '1',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
+            x: 0,
+            y: 10,
+            width: 1,
+            height: 8
           },
           {
             id: '2',
+            class: '',
+            color: '#FDD835',
+            project: '타이틀리스트 슈어핏',
             x: 1,
-            y: 0,
-            width: 2,
-            height: 1
+            y: 8,
+            width: 1,
+            height: 3
           },
           {
             id: '3',
-            x: 0,
-            y: 1,
-            width: 2,
-            height: 1
+            class: '',
+            color: '#3844c7',
+            project: '연구소 주간회의',
+            x: 1,
+            y: 11,
+            width: 1,
+            height: 1,
+            locked: true
           },
           {
             id: '4',
-            x: 3,
-            y: 0,
+            class: '',
+            color: '#FF7043',
+            project: '타이틀리스트 어패럴',
+            x: 1,
+            y: 12,
             width: 1,
-            height: 2
+            height: 5.5
           },
           {
             id: '5',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
             x: 2,
-            y: 1,
+            y: 8.5,
             width: 1,
-            height: 1
+            height: 8.5
+          },
+          {
+            id: '6',
+            class: '',
+            color: '#3844c7',
+            project: '행복앱 인수인계',
+            x: 3,
+            y: 9,
+            width: 1,
+            height: 3,
+            locked: true
+          },
+          {
+            id: '7',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 3,
+            y: 12,
+            width: 1,
+            height: 8.5
+          },
+          {
+            id: '8',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 4,
+            y: 8,
+            width: 1,
+            height: 16
+          },
+          {
+            id: '9',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 4
           }
         ]
       },
       {
         breakpoint: 'xs',
         breakpointWidth: 480,
-        numberOfCols: 7,
+        numberOfCols: this.row,
         items: [
           {
-            id: '1',
+            id: '00',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
             x: 0,
-            y: 0,
+            y: 8,
             width: 1,
             height: 1
+          },
+          {
+            id: '0',
+            class: '',
+            color: '#F44336',
+            project: '전체회의',
+            x: 0,
+            y: 9,
+            width: 1,
+            height: 1,
+            locked: true
+          },
+          {
+            id: '1',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
+            x: 0,
+            y: 10,
+            width: 1,
+            height: 8
           },
           {
             id: '2',
+            class: '',
+            color: '#FDD835',
+            project: '타이틀리스트 슈어핏',
             x: 1,
-            y: 0,
+            y: 8,
             width: 1,
-            height: 1
+            height: 3
           },
           {
             id: '3',
-            x: 0,
-            y: 1,
-            width: 2,
-            height: 1
+            class: '',
+            color: '#3844c7',
+            project: '연구소 주간회의',
+            x: 1,
+            y: 11,
+            width: 1,
+            height: 1,
+            locked: true
+          },
+          {
+            id: '4',
+            class: '',
+            color: '#FF7043',
+            project: '타이틀리스트 어패럴',
+            x: 1,
+            y: 12,
+            width: 1,
+            height: 5.5
+          },
+          {
+            id: '5',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 2,
+            y: 8.5,
+            width: 1,
+            height: 8.5
+          },
+          {
+            id: '6',
+            class: '',
+            color: '#3844c7',
+            project: '행복앱 인수인계',
+            x: 3,
+            y: 9,
+            width: 1,
+            height: 3,
+            locked: true
+          },
+          {
+            id: '7',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 3,
+            y: 12,
+            width: 1,
+            height: 8.5
+          },
+          {
+            id: '8',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 4,
+            y: 8,
+            width: 1,
+            height: 16
+          },
+          {
+            id: '9',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 4
           }
         ]
       },
       {
         breakpoint: 'xxs',
         breakpointWidth: 0,
-        numberOfCols: 1,
+        numberOfCols: this.row,
         items: [
           {
-            id: '1',
+            id: '00',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
             x: 0,
-            y: 0,
+            y: 8,
             width: 1,
             height: 1
           },
           {
-            id: '2',
+            id: '0',
+            class: '',
+            color: '#F44336',
+            project: '전체회의',
             x: 0,
-            y: 1,
+            y: 9,
             width: 1,
-            height: 1
+            height: 1,
+            locked: true
+          },
+          {
+            id: '1',
+            class: '',
+            color: '#00897B',
+            project: '용암수 운영',
+            x: 0,
+            y: 10,
+            width: 1,
+            height: 8
+          },
+          {
+            id: '2',
+            class: '',
+            color: '#FDD835',
+            project: '타이틀리스트 슈어핏',
+            x: 1,
+            y: 8,
+            width: 1,
+            height: 3
+          },
+          {
+            id: '3',
+            class: '',
+            color: '#3844c7',
+            project: '연구소 주간회의',
+            x: 1,
+            y: 11,
+            width: 1,
+            height: 1,
+            locked: true
+          },
+          {
+            id: '4',
+            class: '',
+            color: '#FF7043',
+            project: '타이틀리스트 어패럴',
+            x: 1,
+            y: 12,
+            width: 1,
+            height: 5.5
+          },
+          {
+            id: '5',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 2,
+            y: 8.5,
+            width: 1,
+            height: 8.5
+          },
+          {
+            id: '6',
+            class: '',
+            color: '#3844c7',
+            project: '행복앱 인수인계',
+            x: 3,
+            y: 9,
+            width: 1,
+            height: 3,
+            locked: true
+          },
+          {
+            id: '7',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 3,
+            y: 12,
+            width: 1,
+            height: 8.5
+          },
+          {
+            id: '8',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 4,
+            y: 8,
+            width: 1,
+            height: 16
+          },
+          {
+            id: '9',
+            class: '',
+            color: '#FF7043',
+            project: 'SK 행복앱',
+            x: 5,
+            y: 0,
+            width: 1,
+            height: 4
           }
         ]
       }
