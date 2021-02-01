@@ -15,8 +15,10 @@
       <div ref="grid" class="grid">
         <ul>
           <li>
-            <ul>
-              <li>2월 1일(월)</li>
+            <ul class="today">
+              <li>
+                2월 1일(월)
+              </li>
               <li></li>
               <li></li>
               <li></li>
@@ -328,7 +330,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" text @click="dialog = false">
-               취소
+              취소
             </v-btn>
             <v-btn color="blue darken-1" text @click="dialog = false">
               저장
@@ -363,16 +365,6 @@ export default {
     },
     rowHeight() {
       return 30
-    }
-  },
-  methods: {
-    weekGo(t) {
-      console.log(t)
-    },
-    showInfo(d) {
-      this.dialog = true
-      this.info = d
-      console.log(d)
     }
   },
   mounted() {
@@ -691,6 +683,16 @@ export default {
       }
     ]
     console.log(this.rowWidth)
+  },
+  methods: {
+    weekGo(t) {
+      console.log(t)
+    },
+    showInfo(d) {
+      this.dialog = true
+      this.info = d
+      console.log(d)
+    }
   }
 }
 </script>
@@ -825,6 +827,12 @@ export default {
         //border-top: 1px solid #ccc;
         //border-bottom: 1px solid #ccc;
         > ul {
+          &.today {
+            background-color: #1565C033;
+            li:first-child {
+              background-color: #fff;
+            }
+          }
           > li {
             position: relative;
             display: block;
